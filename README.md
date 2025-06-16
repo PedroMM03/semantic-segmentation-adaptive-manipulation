@@ -5,7 +5,9 @@ This project presents the development of a flexible robotic manipulation system 
 REQUIREMENTS:
 
 NVIDIA Jetson AGX Xavier
+
 xArm6 - UFactory
+
 ZED Mini - Stereolabs
 
 DEVELOPMENT ENVIRONMENT INSTALLATION
