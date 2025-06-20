@@ -130,7 +130,7 @@ RUN apt-get update \
 RUN rosdep update
 
 # -----------------------------
-# 8. Dependencias extra de ROS 2 que MoveIt2 / xArm / Gazebo necesitan
+# 8. Dependencias extra de ROS 2 que MoveIt2 / xArm / Gazebo
 # -----------------------------
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-foxy-eigen3-cmake-module \
