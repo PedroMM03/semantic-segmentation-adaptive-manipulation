@@ -115,12 +115,74 @@ Note: The package zed_vision requires a YOLO segmentation model to be manually a
 
 [Ultralytics YOLO models for segmentation](https://docs.ultralytics.com/es/tasks/segment/#models)
 
+3. Your workspace should now have the following structure
 
-BUILD
+```plaintext
+ros2_ws/
+├── src/
+│   ├── zed_vision/
+│   ├── xarm6_controller/
+│   ├── segmentation_panel/
+│   ├── moveit2/
+│   ├── nmea_msgs/
+│   ├── vision_opencv/
+│   └── xarm_ros2/
+├── install/
+├── build/
+└── log/
+```
+4. Build only the custom packages
 
-HIERARCHY TREE WS
+```bash
+cd ~/ros2_ws
+colcon build --packages-select zed_vision xarm6_controller segmentation_panel
 
-SEE COMAND USED DURING EXECUTION
+```
+
+5. Source the workspace:
+
+```bash
+
+source install/setup.bash
+
+```
+
+
+### Execution Instructions
+
+To run the full robotic manipulation system, you will need **four separate terminal windows**, each running a dedicated component inside the Docker container.
+ 
+> All containers **share the same ROS 2 environment** 
+
+Use the following command to start the container:
+
+```bash
+sudo docker run --rm -it --gpus all --ipc=host --network host --runtime=nvidia \
+  --env DISPLAY=$DISPLAY \
+  --volume /tmp/.X11-unix:/tmp/.X11-unix \
+  -v /dev/bus/usb:/dev/bus/usb \
+  -v /media/isa/data2/docker_scripts/ros2_ws:/root/ros2_ws \
+  --privileged jetson-yolo-zed-xarm-ros2:latest
+```
+
+#### Terminal 1 — Manipulator Initialization
+
+ros2 launch xarm_api xarm6_driver.launch.py robot_ip:=192.168.1.111
+
+
+#### Terminal 2 — RViz Visualization
+
+ros2 launch xarm_moveit_config xarm6_moveit_realmove.launch.py robot_ip:=192.168.1.111 add_vacuum_gripper:=true
+
+
+#### Terminal 3 — ZED Vision System
+
+ros2 launch zed_vision zed_vision_launch.py
+
+Terminal 4 — Custom Controller Node
+
+ros2 launch xarm6_controller xarm6_controller_launch.py
+
 
 HOW ADD CONTROL PANEL IN RVIZ2
 
