@@ -40,15 +40,46 @@ sudo -E DOCKER_BUILDKIT=1 docker build \
 
 (This uses all CPU cores available for faster builds and enables caching through BuildKit)
 
+### 🚀 Running the Docker Container
 
-sudo docker run -it --gpus all --ipc=host --network host --runtime=nvidia --env DISPLAY=$DISPLAY --volume /tmp/.X11-unix:/tmp/.X11-unix -v /media/isa/data2/docker_scripts:/workspace -v /dev/bus/usb:/dev/bus/usb  --privileged jetson-yolo-zed-xarm-ros2:latest
+After building the Docker image, the next step is to **run a container**. The following instructions describe how to use and manage the `ros2_ws` (ROS 2 workspace) between the container and the host system.
 
-Copy ROS 2 workspace into host folder
+---
 
-Ahora cada vez que llámenos a este contenedor debemos usar el ros2_ws del host no el del contendor para ello usamo volumen compartido:
+#### 1️⃣ First run (internal `ros2_ws` inside the container)
 
-sudo docker run --rm -it --gpus all --ipc=host --network host --runtime=nvidia --env DISPLAY=$DISPLAY --volume /tmp/.X11-unix:/tmp/.X11-unix -v /media/isa/data2/docker_scripts:/workspace -v /dev/bus/usb:/dev/bus/usb -v /media/isa/data2/docker_scripts/ros2_ws:/root/ros2_ws --privileged jetson-yolo-zed-xarm-ros2:latest
+Initially, you can run the container **without mounting any external ROS 2 workspace**:
 
+```bash
+sudo docker run -it --gpus all --ipc=host --network host --runtime=nvidia \
+  --env DISPLAY=$DISPLAY \
+  --volume /tmp/.X11-unix:/tmp/.X11-unix \
+  -v /media/isa/data2/docker_scripts:/workspace \
+  -v /dev/bus/usb:/dev/bus/usb \
+  --privileged jetson-yolo-zed-xarm-ros2:latest
+
+```
+
+#### 1️⃣ Copy the ROS 2 workspace to the host
+While the container is running (from step 1), you can copy the ros2_ws directory to the host with:
+
+```bash
+sudo docker cp <container_id>:/root/ros2_ws /media/isa/data2/docker_scripts/
+```
+
+You can find the <container_id> using docker ps. 
+Now the ROS 2 workspace exists on the host filesystem. You can edit it using Visual Studio Code or any other editor.
+
+
+```bash
+sudo docker run --rm -it --gpus all --ipc=host --network host --runtime=nvidia \
+  --env DISPLAY=$DISPLAY \
+  --volume /tmp/.X11-unix:/tmp/.X11-unix \
+  -v /media/isa/data2/docker_scripts:/workspace \
+  -v /dev/bus/usb:/dev/bus/usb \
+  -v /media/isa/data2/docker_scripts/ros2_ws:/root/ros2_ws \
+  --privileged jetson-yolo-zed-xarm-ros2:latest
+```
 xhost +local:docker BEFORE RECOMMENDED
 
 ELIMINATE DEMO WORKSPACE 
