@@ -54,7 +54,6 @@ Initially, you can run the container **without mounting any external ROS 2 works
 sudo docker run -it --gpus all --ipc=host --network host --runtime=nvidia \
   --env DISPLAY=$DISPLAY \
   --volume /tmp/.X11-unix:/tmp/.X11-unix \
-  -v /media/isa/data2/docker_scripts:/workspace \
   -v /dev/bus/usb:/dev/bus/usb \
   --privileged jetson-yolo-zed-xarm-ros2:latest
 
@@ -78,7 +77,6 @@ In subsequent executions, it's best to mount the host copy of ros2_ws into the c
 sudo docker run --rm -it --gpus all --ipc=host --network host --runtime=nvidia \
   --env DISPLAY=$DISPLAY \
   --volume /tmp/.X11-unix:/tmp/.X11-unix \
-  -v /media/isa/data2/docker_scripts:/workspace \
   -v /dev/bus/usb:/dev/bus/usb \
   -v /media/isa/data2/docker_scripts/ros2_ws:/root/ros2_ws \
   --privileged jetson-yolo-zed-xarm-ros2:latest
@@ -92,9 +90,15 @@ sudo docker run --rm -it --gpus all --ipc=host --network host --runtime=nvidia \
 
 
 
-xhost +local:docker BEFORE RECOMMENDED
+> ⚠️ **Important Note**:  
+> To allow the Docker container to access the X11 display server (needed for graphical applications like RViz or GUI tools), it is **recommended to run the following command before starting the container**:
+>
+> ```bash
+> xhost +local:docker
+> ```
+>
+> This avoids permission errors when the container tries to open graphical windows on the host.
 
-ELIMINATE DEMO WORKSPACE 
 
 ADD PORJECT PACKAGES
 
