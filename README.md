@@ -201,11 +201,16 @@ The zed_vision node publishes an annotated image topic showing segmentation resu
 
 1. In RViz2, click on Add in the Displays section.
 
-2 .Select by Topic.
+2. Select by Topic.
 
 3. Set the topic to /zed_vision/annotated_frame Image
 
 ![SETUPDEMO_3](https://github.com/user-attachments/assets/42327a5a-0249-47fd-ada6-8a82cdace398)
+
+Final result:
+
+![SETUPDEMO_4](https://github.com/user-attachments/assets/d79dce4e-b819-44ed-bc7e-8d9392e9e5c2)
+
 
 ---
 
