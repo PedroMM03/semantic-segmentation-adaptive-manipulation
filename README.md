@@ -99,7 +99,17 @@ sudo docker run --rm -it --gpus all --ipc=host --network host --runtime=nvidia \
 >
 > This avoids permission errors when the container tries to open graphical windows on the host.
 
-ADD PROJECTS PACKAGES
+### Add Custom ROS 2 Packages to the Workspace
+
+Once the Docker container is running with the shared workspace (`ros2_ws`) from the host, you need to add the custom packages developed for this project.
+
+1. **Locate the folder `ROS2_Packages/`** in the root of this repository. It contains the three packages used in this project:
+
+   - `zed_vision`
+   - `xarm6_controller`
+   - `segmentation_panel`
+
+2. **Copy or move the packages into your ROS 2 workspace:**
 
 Note: The package zed_vision requires a YOLO segmentation model to be manually added.
 
