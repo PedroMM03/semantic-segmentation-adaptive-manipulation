@@ -1,4 +1,4 @@
-# semantic-segmentation-adaptive-manipulation
+#  Semantic Segmentation for Adaptive Manipulation with Industrial Robots
 This project presents the development of a flexible robotic manipulation system based on computer vision, aimed at industrial applications. The main goal is to identify and locate objects through instance segmentation and automatically determine their pose (position and orientation) to enable their manipulation by a robotic arm.
 
 ## Hardware Requirements
@@ -146,7 +146,7 @@ colcon build --packages-select zed_vision xarm6_controller segmentation_panel
 source install/setup.bash
 
 ```
-
+---
 
 ### Execution Instructions
 
@@ -165,28 +165,30 @@ sudo docker run --rm -it --gpus all --ipc=host --network host --runtime=nvidia \
   --privileged jetson-yolo-zed-xarm-ros2:latest
 ```
 
-#### Terminal 1 — Manipulator Initialization
-
+#### Terminal 1 — Manipulator Connection
+```bah
 ros2 launch xarm_api xarm6_driver.launch.py robot_ip:=192.168.1.111
-
+```
 
 #### Terminal 2 — RViz Visualization
-
+```bah
 ros2 launch xarm_moveit_config xarm6_moveit_realmove.launch.py robot_ip:=192.168.1.111 add_vacuum_gripper:=true
-
+```
 
 #### Terminal 3 — ZED Vision System
-
+```bah
 ros2 launch zed_vision zed_vision_launch.py
-
-Terminal 4 — Custom Controller Node
-
+```
+#### Terminal 4 — xArm6 Controller
+```bah
 ros2 launch xarm6_controller xarm6_controller_launch.py
-
+```
 
 HOW ADD CONTROL PANEL IN RVIZ2
 
 
+
+---
 
 SCRIPTS FOR FIGURES IN TEXT
 
