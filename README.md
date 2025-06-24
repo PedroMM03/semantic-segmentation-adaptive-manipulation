@@ -47,7 +47,25 @@ Copy ROS 2 workspace into host folder
 
 Ahora cada vez que llámenos a este contenedor debemos usar el ros2_ws del host no el del contendor para ello usamo volumen compartido:
 
-sudo docker run -it --gpus all --ipc=host --network host --runtime=nvidia --env DISPLAY=$DISPLAY --volume /tmp/.X11-unix:/tmp/.X11-unix -v /media/isa/data2/docker_scripts:/workspace -v /dev/bus/usb:/dev/bus/usb -v /media/isa/data2/docker_scripts/ros2_ws:/root/ros2_ws --privileged jetson-dev-ros2:latest
+sudo docker run --rm -it --gpus all --ipc=host --network host --runtime=nvidia --env DISPLAY=$DISPLAY --volume /tmp/.X11-unix:/tmp/.X11-unix -v /media/isa/data2/docker_scripts:/workspace -v /dev/bus/usb:/dev/bus/usb -v /media/isa/data2/docker_scripts/ros2_ws:/root/ros2_ws --privileged jetson-yolo-zed-xarm-ros2:latest
+
+xhost +local:docker BEFORE RECOMMENDED
+
+ELIMINATE DEMO WORKSPACE 
+
+ADD PORJECT PACKAGES
+
+BUILD
+
+HIERARCHY TREE WS
+
+SEE COMAND USED DURING EXECUTION
+
+HOW ADD CONTROL PANEL IN RVIZ2
+
+
+
+SCRIPTS FOR FIGURES IN TEXT
 
 
 
