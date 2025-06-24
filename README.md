@@ -1,15 +1,13 @@
 #  Semantic Segmentation for Adaptive Manipulation with Industrial Robots
 This project presents the development of a flexible robotic manipulation system based on computer vision, aimed at industrial applications. The main goal is to identify and locate objects through instance segmentation and automatically determine their pose (position and orientation) to enable their manipulation by a robotic arm.
 
-## Hardware Requirements
+## 1. 🛠️ Installation and Execution of the Developed System
+
+### 📦 Prerequisites
 
 - **NVIDIA Jetson AGX Xavier**
 - **xArm6 - UFactory**
 - **ZED Mini - Stereolabs**
-
-## 🛠️ Development Environment Installation
-
-### 📦 Prerequisites
 
 - **[Docker](https://www.docker.com/)** installed on the Jetson device  
   Used to isolate the build environment and manage dependencies inside a container.
@@ -25,26 +23,41 @@ inside the Docker container using mapped directories.
 
 
 ### ⚙️ Setup Steps
-# Install Docker buildx plugin (for ARM64 systems like Jetson)
+
+#### Required Files for Building
+
+Note: The ZED SDK installer is not included in this repository due to file size limitations. You must manually download it from the official website and place it alongside the Dockerfile.
+https://www.stereolabs.com/en-tw/developers/release/4.2#82af3640d775
+The version used in this project is ZED SDK for JetPack 5.1.2 (L4T 35.4) 4.2 (Jetson Xavier, Orin AGX/NX/Nano, CUDA 11.4)
+
+```bash
+Docker/
+├── Dockerfile
+├── ZED_SDK_Tegra_L4T35.4_v4.2.5.zstd.run
+```
+
+#### Install Docker buildx plugin (for ARM64 systems)
+```bash
 mkdir -p ~/.docker/cli-plugins
 curl -sSL https://github.com/docker/buildx/releases/download/v0.10.4/buildx-v0.10.4.linux-arm64 -o ~/.docker/cli-plugins/docker-buildx
 chmod +x ~/.docker/cli-plugins/docker-buildx
-
-# Confirm installation
+```
+#### Confirm installation
+```bash
 docker buildx version
-
-# Then, build the image using: 
+```
+#### Then, build the image using: 
+```bash
 sudo -E DOCKER_BUILDKIT=1 docker build \
   --build-arg PARALLEL_WORKERS=$(nproc) \
   -t jetson-yolo-zed-xarm-ros2
-
+```
 (This uses all CPU cores available for faster builds and enables caching through BuildKit)
 
 ### Running the Docker Container
 
 After building the Docker image, the next step is to **run a container**. The following instructions describe how to use and manage the `ros2_ws` (ROS 2 workspace) between the container and the host system.
 
----
 
 #### 1️⃣ First run (internal `ros2_ws` inside the container)
 
@@ -184,7 +197,7 @@ ros2 launch zed_vision zed_vision_launch.py
 ros2 launch xarm6_controller xarm6_controller_launch.py
 ```
 
-## How to Add the Custom Control Panel And Annotated Frame in RViz2
+### How to Add the Custom Control Panel And Annotated Frame in RViz2
 
 1. Open the "Panels" menu
 Click on Panels in the top bar of RViz2 and select Add New Panel.
@@ -196,7 +209,6 @@ In the new window, search for SegmentationPanel under the segmentation_panel pac
 
 ![SETUPDEMO_2](https://github.com/user-attachments/assets/5f1fed8f-3644-44ca-a0ea-afdbf8977b93)
 
-### 2. Display the Annotated Frame
 The zed_vision node publishes an annotated image topic showing segmentation results. To visualize it:
 
 1. In RViz2, click on Add in the Displays section.
@@ -214,10 +226,12 @@ Final result:
 
 ---
 
-SCRIPTS FOR FIGURES IN TEXT
+## 2. 🎥 Figures, Visualizations & Demonstration Scripts
 
+### 📸 Image Captures Referenced in the Report
+### 🎞️ Demo Scripts or Command References for Reproducibility
 
+---
 
-# Other related links
-## ZED SDK
-https://www.stereolabs.com/en-tw/developers/release/4.2#82af3640d775
+## 3. 🔗 Additional Resources and Links
+
