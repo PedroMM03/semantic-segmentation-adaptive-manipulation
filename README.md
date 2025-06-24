@@ -59,7 +59,7 @@ sudo -E DOCKER_BUILDKIT=1 docker build \
 After building the Docker image, the next step is to **run a container**. The following instructions describe how to use and manage the `ros2_ws` (ROS 2 workspace) between the container and the host system.
 
 
-#### 1️⃣ First run (internal `ros2_ws` inside the container)
+#### 1️⃣ First run
 
 Initially, you can run the container **without mounting any external ROS 2 workspace**:
 
@@ -82,7 +82,7 @@ sudo docker cp <container_id>:/root/ros2_ws /media/isa/data2/docker_scripts/
 You can find the <container_id> using docker ps. 
 Now the ROS 2 workspace exists on the host filesystem. You can edit it using Visual Studio Code or any other editor.
 
-#### 3️⃣ Future runs (using shared workspace from the host)
+#### 3️⃣ Future runs (using shared workspace from the host
 
 In subsequent executions, it's best to mount the host copy of ros2_ws into the container using a volume. This ensures all changes persist and are accessible both inside and outside the container:
 
@@ -226,10 +226,9 @@ Final result:
 
 ---
 
-## 2. 🎥 Figures, Visualizations & Demonstration Scripts
+## 2. Scripts Used to Generate Figures in the Report
 
-### 📸 Image Captures Referenced in the Report
-### 🎞️ Demo Scripts or Command References for Reproducibility
+This section includes complementary scripts used to generate some of the illustrative figures shown in the final written report 
 
 ---
 
