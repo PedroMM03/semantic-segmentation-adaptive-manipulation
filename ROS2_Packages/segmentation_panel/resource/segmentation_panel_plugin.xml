@@ -1,0 +1,9 @@
+<library path="segmentation_panel">
+  <class name="Object Segmentation Panel"
+         type="segmentation_panel::SegmentationControlPanel"
+         base_class_type="rviz_common::Panel">
+    <description>
+      Segmentation-Based Manipulation Panel
+    </description>
+  </class>
+</library>
