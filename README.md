@@ -99,8 +99,12 @@ sudo docker run --rm -it --gpus all --ipc=host --network host --runtime=nvidia \
 >
 > This avoids permission errors when the container tries to open graphical windows on the host.
 
+ADD PROJECTS PACKAGES
 
-ADD PORJECT PACKAGES
+Note: The package zed_vision requires a YOLO segmentation model to be manually added.
+
+[Ultralytics YOLO models for segmentation](https://docs.ultralytics.com/es/tasks/segment/#models)
+
 
 BUILD
 
