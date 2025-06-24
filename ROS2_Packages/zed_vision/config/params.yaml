@@ -1,0 +1,4 @@
+ComputerVision:
+  ros__parameters:
+    conf: 0.3
+    check_radio: 30
