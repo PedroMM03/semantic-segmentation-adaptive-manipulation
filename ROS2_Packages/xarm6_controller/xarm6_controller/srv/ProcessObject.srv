@@ -1,8 +1,0 @@
-int32 id
-string class_name
-float32 aprox_x
-float32 aprox_y
-float32 aprox_z
----
-bool success
-string message

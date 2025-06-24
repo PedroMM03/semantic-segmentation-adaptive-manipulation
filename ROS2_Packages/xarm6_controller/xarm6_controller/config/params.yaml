@@ -1,6 +1,0 @@
-xarm6_controller:
-  ros__parameters:
-    max_pick_attempts: 3
-    pos_tolerance: 1.0
-    ang_tolerance: 0.3
-    home_pose: [0.213, -0.029, 0.357, 3.14, -0.33, 0.003]
