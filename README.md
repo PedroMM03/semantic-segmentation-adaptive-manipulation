@@ -184,9 +184,28 @@ ros2 launch zed_vision zed_vision_launch.py
 ros2 launch xarm6_controller xarm6_controller_launch.py
 ```
 
-HOW ADD CONTROL PANEL IN RVIZ2
+## How to Add the Custom Control Panel And Annotated Frame in RViz2
 
+1. Open the "Panels" menu
+Click on Panels in the top bar of RViz2 and select Add New Panel.
 
+![SETUPDEMO_1](https://github.com/user-attachments/assets/ee56e2d7-91e5-4d83-9f3c-3a43f9b1d365)
+
+2. Locate the SegmentationPanel
+In the new window, search for SegmentationPanel under the segmentation_panel package.
+
+![SETUPDEMO_2](https://github.com/user-attachments/assets/5f1fed8f-3644-44ca-a0ea-afdbf8977b93)
+
+### 2. Display the Annotated Frame
+The zed_vision node publishes an annotated image topic showing segmentation results. To visualize it:
+
+1. In RViz2, click on Add in the Displays section.
+
+2 .Select by Topic.
+
+3. Set the topic to /zed_vision/annotated_frame Image
+
+![SETUPDEMO_3](https://github.com/user-attachments/assets/42327a5a-0249-47fd-ada6-8a82cdace398)
 
 ---
 
