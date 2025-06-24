@@ -40,7 +40,7 @@ sudo -E DOCKER_BUILDKIT=1 docker build \
 
 (This uses all CPU cores available for faster builds and enables caching through BuildKit)
 
-### 🚀 Running the Docker Container
+### Running the Docker Container
 
 After building the Docker image, the next step is to **run a container**. The following instructions describe how to use and manage the `ros2_ws` (ROS 2 workspace) between the container and the host system.
 
@@ -60,7 +60,7 @@ sudo docker run -it --gpus all --ipc=host --network host --runtime=nvidia \
 
 ```
 
-#### 1️⃣ Copy the ROS 2 workspace to the host
+#### 2️⃣ Copy the ROS 2 workspace to the host
 While the container is running (from step 1), you can copy the ros2_ws directory to the host with:
 
 ```bash
@@ -70,6 +70,9 @@ sudo docker cp <container_id>:/root/ros2_ws /media/isa/data2/docker_scripts/
 You can find the <container_id> using docker ps. 
 Now the ROS 2 workspace exists on the host filesystem. You can edit it using Visual Studio Code or any other editor.
 
+#### 3️⃣ Future runs (using shared workspace from the host)
+
+In subsequent executions, it's best to mount the host copy of ros2_ws into the container using a volume. This ensures all changes persist and are accessible both inside and outside the container:
 
 ```bash
 sudo docker run --rm -it --gpus all --ipc=host --network host --runtime=nvidia \
@@ -80,6 +83,15 @@ sudo docker run --rm -it --gpus all --ipc=host --network host --runtime=nvidia \
   -v /media/isa/data2/docker_scripts/ros2_ws:/root/ros2_ws \
   --privileged jetson-yolo-zed-xarm-ros2:latest
 ```
+
+
+> - The `-v /media/.../ros2_ws:/root/ros2_ws` option replaces the container’s default workspace with the **host version**.
+> - Changes made inside the container are now saved **permanently in the host filesystem**.
+> - This allows you to edit with VS Code on the Jetson, and build/run inside Docker.
+
+
+
+
 xhost +local:docker BEFORE RECOMMENDED
 
 ELIMINATE DEMO WORKSPACE 
