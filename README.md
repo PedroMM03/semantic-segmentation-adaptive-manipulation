@@ -128,6 +128,8 @@ Note: The package zed_vision requires a YOLO segmentation model to be manually a
 
 [Ultralytics YOLO models for segmentation](https://docs.ultralytics.com/es/tasks/segment/#models)
 
+ROS_2_Packages/zed_vision/resource/models
+
 3. Your workspace should now have the following structure
 
 ```plaintext
