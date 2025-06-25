@@ -104,7 +104,7 @@ sudo docker run --rm -it --gpus all --ipc=host --network host --runtime=nvidia \
 
 
 > ⚠️ **Important Note**:  
-> To allow the Docker container to access the X11 display server (needed for graphical applications like RViz or GUI tools), it is **recommended to run the following command before starting the container**:
+> To allow the Docker container to access the X11 display server (needed for graphical applications like RViz), it is **recommended to run the following command before starting the container**:
 >
 > ```bash
 > xhost +local:docker
@@ -235,5 +235,14 @@ This section includes complementary scripts used to generate some of the illustr
 
 ---
 
-## 3. 🔗 Additional Resources and Links
+## 3. 🔗 Additional Resources
+
+### Screen Recording – SimpleScreenRecorder
+Used to record demonstration videos.
+Official site: https://www.maartenbaert.be/simplescreenrecorder/
+
+```bash
+sudo apt update
+sudo apt install simplescreenrecorder
+```
 
