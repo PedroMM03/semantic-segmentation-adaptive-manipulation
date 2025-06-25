@@ -228,7 +228,10 @@ Final result:
 
 ## 2. Scripts Used to Generate Figures in the Report
 
-This section includes complementary scripts used to generate some of the illustrative figures shown in the final written report 
+This section includes complementary scripts used to generate some of the illustrative figures shown in the written report 
+
+   - `report_scripts/svdsample.py — A minimal example demonstrating Singular Value Decomposition (SVD) on an image for visualization purposes used in the report`
+   - `report_scripts/get_rpy_from_normal.ggb — GeoGebra 3D visualization of a reference frame aligned with a given surface normal`
 
 ---
 
