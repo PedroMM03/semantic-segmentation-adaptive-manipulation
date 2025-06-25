@@ -1,6 +1,8 @@
 #  Semantic Segmentation for Adaptive Manipulation with Industrial Robots
 This project presents the development of a flexible robotic manipulation system based on computer vision, aimed at industrial applications. The main goal is to identify and locate objects through instance segmentation and automatically determine their pose (position and orientation) to enable their manipulation by a robotic arm.
 
+ **System Functionality Demonstration**: [Watch on YouTube](https://www.youtube.com/watch?v=WOYQpVIyCkI)
+
 ## 1. 🛠️ Installation and Execution of the Developed System
 
 ### 📦 Prerequisites
