@@ -130,7 +130,7 @@ Once the Docker container is running with the shared workspace (`ros2_ws`) from 
 Please refer to [Ultralytics YOLO models for segmentation](https://docs.ultralytics.com/es/tasks/segment/#models) to download them manually.
 
 For detailed instructions, see:  
-`ROS2_Packages/zed_vision/resources/models/README.md`
+`ROS2_Packages/zed_vision/resources/models/README_resources.md`
 
 3. Your workspace should now have the following structure
 
