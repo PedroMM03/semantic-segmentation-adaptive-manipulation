@@ -124,11 +124,13 @@ Once the Docker container is running with the shared workspace (`ros2_ws`) from 
 
 2. **Copy or move the packages into your ROS 2 workspace:**
 
-Note: The package zed_vision requires a YOLO segmentation model to be manually added.
+> ⚠️ Note: The `zed_vision` package requires a YOLO segmentation model to function properly.  
+> Due to file size limitations, models are **not included** in this repository.
 
-[Ultralytics YOLO models for segmentation](https://docs.ultralytics.com/es/tasks/segment/#models)
+Please refer to [Ultralytics YOLO models for segmentation](https://docs.ultralytics.com/es/tasks/segment/#models) to download them manually.
 
-ROS_2_Packages/zed_vision/resource/models
+For detailed instructions, see:  
+`ROS2_Packages/zed_vision/resources/models/README.md`
 
 3. Your workspace should now have the following structure
 
