@@ -1,5 +1,5 @@
 ############################################################
-# Project name: Semantic Segmentation for Adaptive Manipulation with Industrial Robots
+# Project name: Real-time perception and control system for flexible handling with industrial robots. 
 # Author: Pedro Martin
 # Degree: Electronics, Robotics and Mechatronics Engineering - University of Malaga
 # Date: 2025
